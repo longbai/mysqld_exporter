@@ -110,7 +110,7 @@ func parseMycnf(config interface{}) (string, error) {
 	}
 	user := cfg.Section("client").Key("user").String()
 	password := cfg.Section("client").Key("password").String()
-	if (user == "") || (password == "") {
+	if user == "" /* || (password == "")*/ {
 		return dsn, fmt.Errorf("no user or password specified under [client] in %s", config)
 	}
 	host := cfg.Section("client").Key("host").MustString("localhost")
